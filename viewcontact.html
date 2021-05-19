@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <div id="listid2"><h2> Contacts list</h2></div>
+    <div id="myData"></div>
+</head>
+<body>
+    <script>
+
+
+    //function viewcontacts()
+
+    var url = "https://maharshimanthi99.freshdesk.com/api/v2/contacts";
+
+var xhr = new XMLHttpRequest();
+xhr.open("GET", url);
+
+xhr.setRequestHeader("Authorization", "Basic bjNXZENZVGhOMUhXTEI0Qm9FbWU6WA==");
+
+xhr.onreadystatechange = function () {
+   if (xhr.readyState === 4) {
+      console.log(xhr.status);
+      console.log(xhr.responseText);
+      var data=JSON.parse(this.response);
+      var myJSON = JSON.stringify(data);
+      document.getElementById("myData").innerHTML=myJSON;
+   }};
+
+xhr.send();
+
+
+
+
+
+
+                  
+
+
+
+//}
+
+    </script>
+   
+</body>
+</html>
